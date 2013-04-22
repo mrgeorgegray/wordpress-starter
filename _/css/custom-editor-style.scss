@@ -1,0 +1,16 @@
+@import "mixins";
+@import "variables";
+
+html{
+	background:$white;
+	font-size:62.5%;
+}
+body{
+	margin:0 auto;
+	padding:1em;
+	color: $darkgrey;
+	font-family: $sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+@import "typography";

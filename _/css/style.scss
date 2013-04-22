@@ -1,0 +1,130 @@
+	@import "reset";
+	@import "mixins";
+	@import "variables";
+
+
+/*  ROOT 
+    ========================================================================== */
+	* { 
+		/* apply a natural box layout model to all elements - paul irish*/
+		@include box-sizing();
+	}
+	html { 
+		background : $white; 
+		font-size: 90%; 
+		@include respond-to(bird) {
+			font-size: 100%; 
+		}
+	}
+	body {
+		min-width:252px;
+		margin : 0 auto;
+		padding : 0;
+		font-family: $serif;
+		color: $darkgrey;
+		-webkit-font-smoothing: antialiased; 
+		.lt-ie9 & {
+		    min-width:1000px;
+		}
+	}
+
+	/*stop input from round corners*/
+	input[type=text], input[type=tel], input[type=email], textarea, input[type=submit] {
+		-webkit-appearance: none;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+	
+	/* Disable iOS/WinMobile font size changes */
+	@media screen and (max-width: 600px), screen and (max-device-width: 480px) {
+		html {
+			-o-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-webkit-text-size-adjust: none; } 
+	}	
+	
+	
+
+/*  LINKS
+    ========================================================================== */	
+	a { 
+		color: $linkcol; 
+		text-decoration: underline;	
+		&:visited { 
+			color: $linkcolvisited; 
+			text-decoration: underline;
+		}
+		&:hover { 
+			color: $linkcolhover; 
+			text-decoration: none;
+		}
+		&:focus { 
+			outline: thin dotted; 
+			color: $linkcolfocus;
+		}
+	}
+	a:hover, 
+	a:active { 
+		outline : 0; 
+	}
+		
+		
+		
+/*  TYPOGRAPHY 
+    ========================================================================== */	
+	@import "typography";
+
+
+	
+/*  FIGURES & IMAGES 
+    ========================================================================== */
+    hr {
+		display : block;
+		margin : 1em 0;
+		padding : 0;
+		height : 1px;
+		border : 0;
+		border-top : 1px solid $black;
+		border-bottom : 1px solid $white; 
+	}
+    img {
+	    max-width: 100%;
+	    border-width: 0; 
+	    vertical-align: middle; 
+	    -ms-interpolation-mode: bicubic; 
+    }
+    svg:not(:root) {
+    	overflow: hidden; 
+    }
+    figure { 
+    	margin-bottom: $baselineheight; 
+	    img { 
+	    	margin-bottom: $baselineheight / 4; 
+	    }
+	    figcaption {
+		    display: block;
+		    font-weight: normal;
+		    @include font-size(1.4, $baselineheight); 
+		    color: $darkgrey; 
+	    }
+	}
+    
+
+/* NON-SEMANTIC HELPER CLASSES
+   ========================================================================== */
+	@import "helpers";
+
+	
+
+/*  LAYOUT 
+    ========================================================================== */	
+	@import "layout";
+
+
+
+/* PRINT STYLES
+   ========================================================================== */
+	@import "print";
+

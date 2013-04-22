@@ -1,0 +1,223 @@
+	/* PIXELS TO EMS */
+	@function pem($px, $base: 16) {
+    @return ($px / $base) + em;
+	}
+
+	/* HIDE EXTEND */
+	@mixin visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+	}
+	
+	@mixin inline-block {
+		display: inline-block;
+		vertical-align: baseline;
+		zoom: 1;
+		*display: inline;
+		*vertical-align: auto;
+	}
+	// eg: div{@include inline-block;} 
+
+	@mixin box-sizing($boxsize: border-box) {
+		-moz-box-sizing: $boxsize;
+		-webkit-box-sizing: $boxsize; 
+		box-sizing: $boxsize; 
+
+	}
+	// eg: div{@include box-sizing(border-box);}]
+
+
+/* TEXT */	
+	@mixin font-size($size:1.6, $line: $size * 1.5){
+	    font-size: ($size * 10) + px;
+	    font-size: $size + rem;
+	  	line-height: $line;
+	}
+	// eg: p{@include font-size(1.5, 2);} 
+
+	@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+	    text-shadow: $x $y $blur $color;
+	}
+	// eg: p{@include text-shadow(2px, 2px, 5px, rgba(0,0,0,.4));} 
+	
+/* BORDERS */
+	@mixin rounded($radius: 3px) {
+	  	-webkit-border-radius: $radius;
+	  	-moz-border-radius: $radius;
+	  	border-radius: $radius; 
+	}
+	// eg: .my_div{@include rounded(6px);} 
+
+
+	@mixin border-radius($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+	  	-webkit-border-top-right-radius: $topright;
+	  	-webkit-border-bottom-right-radius: $bottomright;
+	  	-webkit-border-bottom-left-radius: $bottomleft;
+	  	-webkit-border-top-left-radius: $topleft;
+	  	-moz-border-radius-topright: $topright;
+	  	-moz-border-radius-bottomright: $bottomright;
+	  	-moz-border-radius-bottomleft: $bottomleft;
+	  	-moz-border-radius-topleft: $topleft;
+	  	border-top-right-radius: $topright;
+	  	border-bottom-right-radius: $bottomright;
+	  	border-bottom-left-radius: $bottomleft;
+	  	border-top-left-radius: $topleft;
+	}
+	// eg: .my_div{@include border-radius(6px, 2px, 10px, 20px);} 
+
+/* SHADOWS */
+	@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+		@if $inset {
+			-webkit-box-shadow:inset $top $left $blur $color;
+			-moz-box-shadow:inset $top $left $blur $color;
+			box-shadow:inset $top $left $blur $color;
+		} @else {
+			-webkit-box-shadow: $top $left $blur $color;
+			-moz-box-shadow: $top $left $blur $color;
+			box-shadow: $top $left $blur $color;
+		}
+	}
+	// eg: .my_div{@include box-shadow(0, 0, 10px, #000000, inset);} 
+
+	
+/* OPACITY */
+	@mixin opacity($opacity : .5) {
+		-webkit-opacity : $opacity;
+		-moz-opacity : $opacity;
+		opacity : $opacity; 
+	}
+	// eg: .my_div{@include opacity(.5);} 
+
+/* GRADIENTS */
+	@mixin bg-gradient($startColor: #3C3C3C, $endColor: #999999) {
+	    background-color: $startColor;
+	    background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+	    background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+	    background-image: -moz-linear-gradient(top, $startColor, $endColor);
+	    background-image: -ms-linear-gradient(top, $startColor, $endColor);
+	    background-image: -o-linear-gradient(top, $startColor, $endColor);
+	    background-image: linear-gradient(top, $startColor, $endColor);
+	    //filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor);
+	}
+	// eg: .my_div { @include bg-gradient(black, white); } 
+
+/* TRANSITIONS */
+	@mixin transition($what: all, $length: 1s, $easing: ease-in-out) {
+	    -moz-transition: $what $length $easing;
+	    -o-transition: $what $length $easing;
+	    -webkit-transition: $what $length $easing;
+	    -ms-transition: $what $length $easing;
+	    transition: $what $length $easing;
+	}
+	// eg: .my_div { @include transition(all, 1s, ease-in-out); } 
+
+
+/* TRANSFORMS */
+	@mixin rotate($deg: 0) {
+		-moz-transform: rotate($deg + deg);
+		-o-transform: rotate($deg + deg);
+		-webkit-transform: rotate($deg + deg);
+		-ms-transform: rotate($deg + deg);
+		transform: rotate($deg + deg);
+		zoom: 1;
+	}
+	// eg: .my_div { @include rotate(2); } 
+
+
+	@mixin scale($ratio: 0) {
+		-moz-transform: scale($ratio);
+		-o-transform: scale($ratio);
+		-webkit-transform: scale($ratio);
+		-ms-transform: scale($ratio);
+		transform: scale($ratio);
+		zoom: 1;
+	}
+	// eg: .my_div { @include scale(2); } 
+
+	
+/* COLUMNS */
+
+
+	// http://jakearchibald.github.com/sass-ie/
+	$fix-mqs: false !default; //if true then flatten all media quieries to produce an ie8 stylesheet.
+
+	/*Media Queries */
+	$break0: pem(320);   		// flea
+	$break1: pem(480);  		// ant 
+	$break2: pem(600);  		// beetle 
+	$break3: pem(680);  		// snake 
+	$break4: pem(767);  		// spider 
+	$break5: pem(850);  		// bird 
+	$break6: pem(1000); 		// hippo 
+	$break7: pem(1200); 		// whale 
+	$break8: pem(1500); 		// planet
+
+	@mixin respond-to($media) {
+		@if $media ==  flea { 
+			@if $fix-mqs {
+				//if true then show content and no media query
+				@content;
+			}
+			@else {
+				//else add in the media query
+				@media only screen and (min-width: $break0 ) { 
+					@content; 
+				}
+			}
+		}
+		@if $media ==  ant { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break1 ) {  @content;  }
+			}
+		}
+		@if $media ==  beetle { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break2 ) {  @content;  }
+			}
+		}
+		@if $media ==  snake { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break3 ) {  @content;  }
+			}
+		}
+		@if $media ==  spider { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break4 ) {  @content;  }
+			}
+		}
+		@if $media ==  bird { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break5 ) {  @content;  }
+			}
+		}
+		@if $media ==  hippo { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break6 ) {  @content;  }
+			}
+		}
+		@if $media ==  whale { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break7 ) {  @content;  }
+			}
+		}
+		@if $media ==  planet { 
+			@if $fix-mqs { @content; }
+			@else {
+				@media only screen and (min-width: $break8 ) {  @content;  }
+			}
+		}
+	//End respond block
+	}

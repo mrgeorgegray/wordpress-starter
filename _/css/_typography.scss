@@ -1,0 +1,141 @@
+	h1, .alpha,
+	h2, .beta,
+	h3, .gamma, 
+	h4, .delta, 
+	h5, .epsilon,
+	h6, .zeta {
+		margin: 0;
+		font-family: $heading-font;
+		font-weight: bold;
+		text-rendering : optimizelegibility; }
+	h1, .alpha{
+	    font-size : $h1-size;
+		margin-bottom : $baselineheight / 2 + em ; 
+		line-height: 1.4; }
+	h2, .beta{
+		clear: both;
+	  font-size: $h2-size;
+		margin-bottom : $baselineheight / 2 + em ;
+	  line-height: 1.4; }
+	h3, .gamma{
+	  font-size : $h3-size;
+		margin-bottom : $baselineheight / 1.5 + em ; }
+	h4, .delta{
+	  font-size : $h4-size;
+		margin-bottom : 0.2em ; }
+	h5, .epsilon{
+	  font-size : $h5-size;
+		margin-bottom : $baselineheight + em ; }
+	h6, .zeta{
+	  font-size : $h6-size;
+		margin-bottom : $baselineheight + em ;
+		text-transform : uppercase;
+		letter-spacing : 1px; 
+		font-weight : normal; }
+	.giga{
+	 	font-size : $giga-size; 
+	 	line-height: 1.2; 
+	 	margin-bottom: 0.3em;
+		font-weight: bold; }
+	.mega{
+    font-size : $mega-size; 
+    line-height: 1.2; 
+	 	margin-bottom: 0.6em;
+		font-weight: bold; }
+	.kilo{
+    font-size : $kilo-size; 
+    line-height: 1.2; 
+	 	margin-bottom: 0.6em;
+	 	font-weight: bold; }
+	p,
+	ol, 
+	ul,
+	dl,
+	address {
+		color: $charcoalgrey;
+		font-size : $p-size;
+		margin: 0 0 $baselineheight + em ;
+		line-height: $baselineheight; } 
+	.lede,
+	.lead{
+    font-size : $lead-size;
+    line-height: $baselineheight / 1.05; }
+	small { font-size:0.75em; } //relative to parent 
+	.smallprint,
+	.milli{ font-size : $milli-size; }
+	.micro{ font-size : $micro-size; }
+	
+/* lists */
+	ul,
+	ol {
+		margin : 0 0 $baselineheight+em 1em;
+		padding : 0 0 0 1em; }
+	li ul, 
+	li ol {
+		font-size : $p-size; 
+		margin: 0; }
+	li li,
+	ol ol { font-size: 1em; }
+	dl,
+	dd { margin-bottom: $baselineheight;  }
+	dt { font-weight: bold; }
+	.dl-horizontal {
+		dt {
+			float: left;
+			clear: left;
+			width: 20.25%;
+			text-align: right; }
+		dd { margin-left: 22.78%; }
+	}
+
+/*quotes */
+	blockquote {
+		font-size : $blockquote-size; 
+		margin: 0; 
+		padding: 0 1em 0 0; 
+		color: $midgrey; 
+		font-style: normal; 
+		font-family: $serif;
+	}
+	q { quotes : none; }
+	blockquote:before, 
+	blockquote:after, 
+	q:before, 
+	q:after {
+		content: '';
+		content: none; }
+	cite { font-style: normal; }
+	
+
+	abbr[title] {
+		border-bottom: 1px dotted $black;
+		cursor: help; }
+	b, strong { font-weight: bold; }
+	dfn { font-style: italic; }
+	ins {
+		background-color: lighten($black, 75%);
+		color: $darkgrey;
+		text-decoration: none; }
+	mark {
+		background-color: lighten($black, 75%);
+		color: $darkgrey;
+		font-weight: bold;
+		font-style: italic; }
+	pre,
+	code,
+	kbd,
+	samp {
+		font-size:  1em;
+		font-family: $monospace; }
+	pre {
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word; }
+	sub,
+	sup {
+		font-size : 0.8 ;
+		position: relative;
+		vertical-align: $baselineheight; }
+	sup { top: -.5em; }
+	sub { bottom: -.25em; }
+	

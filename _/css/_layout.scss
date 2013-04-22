@@ -1,0 +1,17 @@
+.wrapper {
+	max-width: 1250px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+
+.island{
+	@extend .cf;
+	position: relative;
+	padding: $baselineheight+em 0 ;
+	@include respond-to(spider) {
+		padding: ($baselineheight * 2)+em 0 ;
+	}
+}
+

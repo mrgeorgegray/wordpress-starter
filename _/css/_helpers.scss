@@ -1,0 +1,114 @@
+	.fr { float:right; }
+	.fl { float:left; }
+	.text-center,
+	.text-centre {
+	    text-align:center; }
+	.caps{
+	    text-transform:uppercase; }
+
+	.aligncenter { 
+		display:block; 
+		margin:.5em auto 1em; 
+	}
+	.alignleft { 
+		display:block; 
+		float:none; 
+		margin:10px auto; 
+		@include respond-to(beetle) { 
+			float:left; 
+			margin:.5em 10px 1em 0;
+		}
+	}
+	.alignright { 
+		display:block; 
+		float:none; 
+		margin:10px auto; 
+		@include respond-to(beetle) { 
+			float:right; 
+			margin:.5em 0 1em 10px;
+		}
+	} 
+
+	.wp-caption {
+		position: relative;
+		margin-bottom: $baselineheight+em;
+		.wp-caption-text {
+			position: relative;
+			border-right: 1px solid darken($lightgrey, 8);
+			border-bottom: 1px solid darken($lightgrey, 8);
+			border-left: 1px solid darken($lightgrey, 8);
+			padding: 0.2em 0.4em 0.3em;
+			background: $white;
+			background: rgba($white, 0.85);
+			font-size: 1.1em;
+			line-height: 1.4;
+			margin: 0;
+			color: $darkgrey;
+			@include respond-to(beetle) { 
+				font-size: 1.2em;
+			}
+			@include respond-to(beetle) { 
+				border: none;
+				position: absolute;
+				bottom: $baselineheight+em;
+				right: 0;
+				font-size: 1.5em;
+			}
+		}
+	}
+
+
+
+	.ir { 
+		display: block; 
+		overflow: hidden; 
+		border: 0; 
+		background-color: transparent; 
+		background-repeat: no-repeat; 
+		text-align: left; 
+		text-indent: -999em; 
+		direction: ltr; 
+		*line-height: 0; }
+	.ir br { display: none; }
+	.hidden { 
+		display: none !important; 
+		visibility: hidden; }
+	.visuallyhidden { 
+		position: absolute; 
+		overflow: hidden; 
+		clip: rect(0 0 0 0); 
+		margin: -1px; 
+		padding: 0; 
+		width: 1px; 
+		height: 1px; 
+		border: 0; }
+	.visuallyhidden.focusable:active, 
+	.visuallyhidden.focusable:focus { 
+		position: static; 
+		overflow: visible; 
+		clip: auto; 
+		margin: 0; 
+		width: auto; 
+		height: auto; }
+	.invisible { visibility: hidden; }
+	.cf{
+	    zoom:1;
+	    &:before,
+	    &:after{
+	        display:table;
+	        content:"";
+	    }
+	    &:after{
+	        clear:both;
+	    }
+	}
+
+	.wp-pagenavi {
+		clear: both;
+		font-family: $sans-serif;
+		font-size: 10px;
+		text-transform: uppercase;
+		.current{
+			display: none;
+		}
+	}
