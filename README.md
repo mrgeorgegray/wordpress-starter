@@ -1,4 +1,4 @@
 wordpress-starter
 =================
 
-A simple wordpress starter theme
+A simple wordpress starter theme by George Gray
